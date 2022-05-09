@@ -32,7 +32,7 @@ const saveTask = () => {
 app.post('/create', (req, res, next) => {
     acc = {
         id : time.getTime() + Math.floor(Math.random() * 100),
-        task: req.body.book
+        book: req.body.book
     };
     next()
 }, (req, res) => {
@@ -56,7 +56,7 @@ app.get('/del/:id', (req, res) => {
 app.post('/update/:id', (req, res) => {
     data.forEach((item, index) => {
         if (item.id == req.params.id) {
-            data[index].task = req.body.text;
+            data[index].book = req.body.text;
         }
     })
     saveTask();
